@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   Container,
   Section,
@@ -48,17 +48,36 @@ export interface TestimonialListProps {
 }
 
 export default function TestimonialList(props: TestimonialListProps) {
+  const { json: { kicker, heading, content } } = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "testimonial-list"}) {
+        kicker,
+        heading,
+        content {
+          id,
+          avatar {
+            id,
+            gatsbyImageData,
+            alt
+          },
+          quote
+          source
+        }
+      }
+    }
+  `)
+  
   return (
     <Section>
       <Container>
         <Box center>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
-            {props.heading}
+            {kicker && <Kicker>{kicker}</Kicker>}
+            {heading}
           </Heading>
         </Box>
         <FlexList gutter={3} variant="start" responsive wrap>
-          {props.content.map((testimonial, index) => (
+          {content.map((testimonial, index) => (
             <Box as="li" key={testimonial.id + index} width="half" padding={3}>
               <Testimonial {...testimonial} />
             </Box>
@@ -68,21 +87,3 @@ export default function TestimonialList(props: TestimonialListProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment HomepageTestimonialListContent on HomepageTestimonialList {
-    id
-    kicker
-    heading
-    content {
-      id
-      quote
-      source
-      avatar {
-        id
-        gatsbyImageData
-        alt
-      }
-    }
-  }
-`

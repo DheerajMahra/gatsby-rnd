@@ -1,0 +1,51 @@
+{
+  "uid": "testimonial-list",
+  "kicker": "Testimonial list",
+  "heading": "Used by the world's most innovative teams",
+  "content": [
+    {
+      "id": "testimonial_one",
+      "avatar": {
+        "id": "user_img",
+        "alt": "User Image",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": ""
+      },
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "source": "JANE DOE"
+    },
+    {
+      "id": "testimonial_two",
+      "avatar": {
+        "id": "user_img",
+        "alt": "User Image",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": ""
+      },
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "source": "JANE DOE"
+    },
+    {
+      "id": "testimonial_three",
+      "avatar": {
+        "id": "user_img",
+        "alt": "User Image",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": ""
+      },
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "source": "JANE DOE"
+    },
+    {
+      "id": "testimonial_four",
+      "avatar": {
+        "id": "user_img",
+        "alt": "User Image",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": ""
+      },
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "source": "JANE DOE"
+    }
+  ]
+}
