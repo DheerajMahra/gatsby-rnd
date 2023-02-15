@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   Container,
   Section,
@@ -43,16 +43,30 @@ export interface BenefitListProps {
 }
 
 export default function BenefitList(props: BenefitListProps) {
+  const { json: { heading, text, content } } = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "benefit-list"}) {
+        heading,
+        text,
+        content {
+          id,
+          heading,
+          text
+        }
+      }
+    }
+  `)
+
   return (
     <Section>
       <Container>
         <Box center>
-          {props.heading && <Heading>{props.heading}</Heading>}
-          {props.text && <Text variant="lead">{props.text}</Text>}
+          {heading && <Heading>{heading}</Heading>}
+          {text && <Text variant="lead">{text}</Text>}
         </Box>
         <Space size={3} />
         <FlexList gutter={3} variant="start" responsive wrap>
-          {props.content.map((benefit) => (
+          {content.map((benefit) => (
             <Benefit key={benefit.id} {...benefit} />
           ))}
         </FlexList>
@@ -60,21 +74,3 @@ export default function BenefitList(props: BenefitListProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment HomepageBenefitListContent on HomepageBenefitList {
-    id
-    heading
-    text
-    content {
-      id
-      heading
-      text
-      image {
-        id
-        gatsbyImageData
-        alt
-      }
-    }
-  }
-`
