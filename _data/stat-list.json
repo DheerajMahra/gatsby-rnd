@@ -1,0 +1,43 @@
+{
+  "uid": "stat-list",
+  "icon": {
+    "id": "hero_img",
+    "alt": "Hero Image",
+    "gatsbyImageData": "IGatsbyImageData",
+    "url": ""
+  },
+  "image": {
+    "id": "hero_img",
+    "alt": "Hero Image",
+    "gatsbyImageData": "IGatsbyImageData",
+    "url": ""
+  },
+  "kicker": "Stat List",
+  "heading": "Finish your feature sprints blazingly fast",
+  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "content": [
+    {
+      "id": "satisfaction",
+      "value": "100%",
+      "label": "Satisfaction"
+    },
+    {
+      "id": "users",
+      "value": "10k",
+      "label": "Users"
+    },
+    {
+      "id": "gb",
+      "value": "256",
+      "label": "GB"
+    }
+  ],
+  "links": [
+    {
+      "id": "string",
+      "href": "string",
+      "url": "string",
+      "text": "Learn More"
+    }
+  ]
+}

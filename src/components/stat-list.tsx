@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   Container,
@@ -43,34 +43,55 @@ export interface StatListProps {
 }
 
 export default function StatList(props: StatListProps) {
+  const { json: { icon, image, kicker, heading, text, content, links } } = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "stat-list"}) {
+        kicker,
+        heading,
+        text,
+        content {
+          id,
+          value,
+          label
+        },
+        links {
+          id,
+          href,
+          url,
+          text
+        }
+      }
+    }
+  `)
+
   return (
     <Container width="fullbleed">
       <Section padding={5} radius="large" background="primary">
         <Flex responsive variant="end">
           <Box width="half">
-            {props.icon && (
-              <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} />
+            {icon && (
+              <Icon alt={icon.alt} image={icon.gatsbyImageData} />
             )}
             <Heading>
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
-              {props.heading}
+              {kicker && <Kicker>{kicker}</Kicker>}
+              {heading}
             </Heading>
-            {props.text && <Text variant="lead">{props.text}</Text>}
+            {text && <Text variant="lead">{text}</Text>}
             <FlexList wrap gap={4}>
-              {props.content.map((stat) => (
+              {content.map((stat) => (
                 <li key={stat.id}>
                   <Stat {...stat} />
                 </li>
               ))}
             </FlexList>
-            <ButtonList links={props.links} reversed />
+            <ButtonList links={links} reversed />
           </Box>
           <Box width="half">
-            {props.image && (
+            {image && (
               <Nudge right={5} bottom={5}>
                 <GatsbyImage
-                  alt={props.image.alt}
-                  image={getImage(props.image.gatsbyImageData)}
+                  alt={image.alt}
+                  image={getImage(image.gatsbyImageData)}
                 />
               </Nudge>
             )}
@@ -80,33 +101,3 @@ export default function StatList(props: StatListProps) {
     </Container>
   )
 }
-
-export const query = graphql`
-  fragment HomepageStatListContent on HomepageStatList {
-    id
-    kicker
-    heading
-    text
-    image {
-      id
-      alt
-      gatsbyImageData
-    }
-    icon {
-      id
-      alt
-      gatsbyImageData
-    }
-    content {
-      id
-      value
-      label
-      heading
-    }
-    links {
-      id
-      href
-      text
-    }
-  }
-`
