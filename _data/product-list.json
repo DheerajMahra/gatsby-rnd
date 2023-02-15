@@ -1,0 +1,50 @@
+{
+  "uid": "product-list",
+  "kicker": "Product List",
+  "heading": "The all-in-one solution",
+  "text": "Clone, deploy, edit, and customize this starter to build your own homepage",
+  "content": [
+    {
+      "id": "superapp",
+      "image": "HomepageImage",
+      "heading": "SuperApp",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "id": "string",
+          "href": "string",
+          "url": "string",
+          "text": "Learn More"
+        }
+      ]
+    },
+    {
+      "id": "acmetracc",
+      "image": "HomepageImage",
+      "heading": "AcmeTracc",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "id": "string",
+          "href": "string",
+          "url": "string",
+          "text": "Learn More"
+        }
+      ]
+    },
+    {
+      "id": "hipermarket",
+      "image": "HomepageImage",
+      "heading": "HiperMarket",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "id": "string",
+          "href": "string",
+          "url": "string",
+          "text": "Learn More"
+        }
+      ]
+    }
+  ]
+}

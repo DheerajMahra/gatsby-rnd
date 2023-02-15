@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   Container,
   Section,
@@ -48,18 +48,40 @@ export interface ProductListProps {
 }
 
 export default function ProductList(props: ProductListProps) {
+  const { json: { kicker, heading, text, content } } = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "product-list"}) {
+        kicker,
+        heading,
+        text,
+        content {
+          id,
+          image,
+          heading,
+          text,
+          links {
+            id,
+            href,
+            url,
+            text
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Section>
       <Container>
         <Box center paddingY={4}>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
-            {props.heading}
+            {kicker && <Kicker>{kicker}</Kicker>}
+            {heading}
           </Heading>
-          {props.text && <Text>{props.text}</Text>}
+          {text && <Text>{text}</Text>}
         </Box>
         <FlexList gap={4} variant="responsive">
-          {props.content.map((product) => (
+          {content.map((product) => (
             <li key={product.id}>
               <Product {...product} />
             </li>
@@ -69,27 +91,3 @@ export default function ProductList(props: ProductListProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment HomepageProductListContent on HomepageProductList {
-    id
-    kicker
-    heading
-    text
-    content {
-      id
-      heading
-      text
-      image {
-        alt
-        id
-        gatsbyImageData
-      }
-      links {
-        id
-        href
-        text
-      }
-    }
-  }
-`
