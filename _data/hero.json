@@ -1,0 +1,27 @@
+{
+  "uid": "hero",
+  "image": {
+    "id": "hero_img",
+    "alt": "Hero Image",
+    "gatsbyImageData": "IGatsbyImageData",
+    "url": "https://gatsbydrupalhomepagets.gatsbyjs.io/static/694af99c96958e8d52fdd7c036dc2276/b2cc1/Hero.webp"
+  },
+  "kicker": "GATSBY + DRUPAL",
+  "h1": "Gatsby Drupal Homepage Starter",
+  "subhead": "A homepage powered by Drupal",
+  "text": "Clone, deploy, edit, and customize this starter to build your own homepage",
+  "links": [
+    {
+      "id": "deploy_now",
+      "href": "#",
+      "url": "#",
+      "text": "Deploy Now"
+    },
+    {
+      "id": "deploy_now",
+      "href": "#",
+      "url": "#",
+      "text": "Github"
+    }
+  ]
+}
