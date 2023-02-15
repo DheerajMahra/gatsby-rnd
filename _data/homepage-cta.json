@@ -1,0 +1,20 @@
+{
+  "uid": "homepage-cta",
+  "kicker": "Get Started",
+  "heading": "Dive in now",
+  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "links": [
+    {
+      "id": "string",
+      "href": "string",
+      "url": "string",
+      "text": "Learn More"
+    },
+    {
+      "id": "string",
+      "href": "string",
+      "url": "string",
+      "text": "See Plans"
+    }
+  ]
+}
