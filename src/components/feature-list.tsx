@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { Container, Box, Kicker, Heading, Text } from "./ui"
 import Feature, { FeatureDataProps } from "./feature"
 
@@ -11,33 +11,43 @@ export interface FeatureListProps {
 }
 
 export default function FeatureList(props: FeatureListProps) {
+  const { json: { kicker, heading, text, content } } = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "feature-list"}) {
+        kicker,
+        heading,
+        text,
+        content {
+          id,
+          image,
+          kicker,
+          heading,
+          text,
+          links {
+            id,
+            href,
+            url,
+            text
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Container width="fullbleed">
       <Box background="muted" radius="large">
         <Box center paddingY={5}>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
-            {props.heading}
+            {kicker && <Kicker>{kicker}</Kicker>}
+            {heading}
           </Heading>
-          {props.text && <Text>{props.text}</Text>}
+          {text && <Text>{text}</Text>}
         </Box>
-        {props.content.map((feature, i) => (
+        {content.map((feature, i) => (
           <Feature key={feature.id} {...feature} flip={Boolean(i % 2)} />
         ))}
       </Box>
     </Container>
   )
 }
-
-export const query = graphql`
-  fragment HomepageFeatureListContent on HomepageFeatureList {
-    id
-    kicker
-    heading
-    text
-    content {
-      id
-      ...HomepageFeatureContent
-    }
-  }
-`
