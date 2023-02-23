@@ -1,24 +1,47 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
 import SEOHead from "../components/head"
 
 interface AboutProps {
-  data: {
-    aboutPage: {
-      id: string
-      title: string
-      description: string
-      image: { id: string; url: string }
-      blocks: sections.HomepageBlock[]
+  json: {
+    data: {
+      aboutPage: {
+        id: string
+        title: string
+        description: string
+        image: { id: string; url: string }
+        blocks: sections.HomepageBlock[]
+      }
     }
   }
 }
 
-export default function About(props: AboutProps) {
-  const { aboutPage } = props.data
+export default function About() {
+  const { json: { data } }: AboutProps = useStaticQuery(graphql`
+    query AboutpageQuery {
+      json(uid: {eq: "about"}) {
+        data {
+          aboutPage {
+            id
+            title
+            description
+            image {
+              id
+              url
+            },
+            blocks {
+              id
+              blocktype
+            }
+          }
+        }
+      }
+    }
+  `)
+  const { aboutPage } = data;
 
   return (
     <Layout>
@@ -30,31 +53,37 @@ export default function About(props: AboutProps) {
     </Layout>
   )
 }
-export const Head = (props: AboutProps) => {
-  const { aboutPage } = props.data
-  return <SEOHead {...aboutPage} />
-}
-export const query = graphql`
-  {
-    aboutPage {
-      id
-      title
-      description
-      image {
-        id
-        url
-      }
-      blocks: content {
-        id
-        blocktype
-        ...AboutHeroContent
-        ...AboutStatListContent
-        ...HomepageProductListContent
-        ...AboutLeadershipContent
-        ...HomepageBenefitListContent
-        ...AboutLogoListContent
-        ...HomepageCtaContent
+export const Head = () => {
+  const { json: { data } }: AboutProps = useStaticQuery(graphql`
+    query AboutpageQuery {
+      json(uid: {eq: "about"}) {
+        data {
+          aboutPage {
+            id
+            title
+            description
+            image {
+              id
+              url
+            },
+            blocks {
+              id
+              blocktype
+            }
+          }
+        }
       }
     }
-  }
-`
+  `)
+  const { aboutPage } = data;
+  return <SEOHead {...aboutPage} />
+}
+
+
+//         ...AboutHeroContent
+//         ...AboutStatListContent
+//         ...HomepageProductListContent
+//         ...AboutLeadershipContent
+//         ...HomepageBenefitListContent
+//         ...AboutLogoListContent
+//         ...HomepageCtaContent

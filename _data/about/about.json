@@ -1,0 +1,28 @@
+{
+  "uid": "about",
+  "data": {
+    "aboutPage": {
+      "id": "about",
+      "title": "About | Gatsby Template",
+      "description": "My Customized Gatsby Template",
+      "image": {
+        "id": "img_id",
+        "url": ""
+      },
+      "blocks": [
+        {
+          "id": "homepage_product_list",
+          "blocktype": "HomepageProductList"
+        },
+        {
+          "id": "homepage_benefit_list",
+          "blocktype": "HomepageBenefitList"
+        },
+        {
+          "id": "homepage_cta",
+          "blocktype": "HomepageCta"
+        }
+      ]
+    }
+  }
+}
