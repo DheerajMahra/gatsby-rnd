@@ -1,0 +1,48 @@
+{
+  "uid": "index",
+  "data": {
+    "homepage": {
+      "id": "homepage",
+      "title": "Gatsby Template",
+      "description": "My Customized Gatsby Template",
+      "image": {
+        "id": "img_id",
+        "url": ""
+      },
+      "blocks": [
+        {
+          "id": "homepage_hero",
+          "blocktype": "HomepageHero"
+        },
+        {
+          "id": "homepage_logo_list",
+          "blocktype": "HomepageLogoList"
+        },
+        {
+          "id": "homepage_product_list",
+          "blocktype": "HomepageProductList"
+        },
+        {
+          "id": "homepage_feature_list",
+          "blocktype": "HomepageFeatureList"
+        },
+        {
+          "id": "homepage_benefit_list",
+          "blocktype": "HomepageBenefitList"
+        },
+        {
+          "id": "homepage_stat_list",
+          "blocktype": "HomepageStatList"
+        },
+        {
+          "id": "homepage_testimonial_list",
+          "blocktype": "HomepageTestimonialList"
+        },
+        {
+          "id": "homepage_cta",
+          "blocktype": "HomepageCta"
+        }
+      ]
+    }
+  }
+}

@@ -1,24 +1,47 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
 import SEOHead from "../components/head"
 
 interface HomepageProps {
-  data: {
-    homepage: {
-      id: string
-      title: string
-      description: string
-      image: { id: string; url: string }
-      blocks: sections.HomepageBlock[]
+  json: {
+    data: {
+      homepage: {
+        id: string
+        title: string
+        description: string
+        image: { id: string; url: string }
+        blocks: sections.HomepageBlock[]
+      }
     }
   }
 }
 
-export default function Homepage(props: HomepageProps) {
-  const { homepage } = props.data
+export default function Homepage() {
+  const { json: { data } }: HomepageProps = useStaticQuery(graphql`
+    query HomepageQuery {
+      json(uid: {eq: "index"}) {
+        data {
+          homepage {
+            id
+            title
+            description
+            image {
+              id
+              url
+            },
+            blocks {
+              id
+              blocktype
+            }
+          }
+        }
+      }
+    }
+  `)
+  const { homepage } = data;
 
   return (
     <Layout>
@@ -30,32 +53,28 @@ export default function Homepage(props: HomepageProps) {
     </Layout>
   )
 }
-export const Head = (props: HomepageProps) => {
-  const { homepage } = props.data
-  return <SEOHead {...homepage} />
-}
-export const query = graphql`
-  {
-    homepage {
-      id
-      title
-      description
-      image {
-        id
-        url
-      }
-      blocks: content {
-        id
-        blocktype
-        ...HomepageHeroContent
-        ...HomepageFeatureListContent
-        ...HomepageCtaContent
-        ...HomepageLogoListContent
-        ...HomepageTestimonialListContent
-        ...HomepageBenefitListContent
-        ...HomepageStatListContent
-        ...HomepageProductListContent
+export const Head = () => {
+  const { json: { data } }: HomepageProps = useStaticQuery(graphql`
+    query HomepageQuery {
+      json(uid: {eq: "index"}) {
+        data {
+          homepage {
+            id
+            title
+            description
+            image {
+              id
+              url
+            },
+            blocks {
+              id
+              blocktype
+            }
+          }
+        }
       }
     }
-  }
-`
+  `)
+  const { homepage } = data;
+  return <SEOHead {...homepage} />
+}
