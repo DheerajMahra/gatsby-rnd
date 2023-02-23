@@ -1,0 +1,69 @@
+{
+  "uid": "homepage-footer",
+  "layout": {
+    "footer": {
+      "id": "homepage-footer",
+      "links": [
+        {
+          "id": "about",
+          "href": "#",
+          "url": "",
+          "text": "About"
+        },
+        {
+          "id": "products",
+          "href": "#",
+          "url": "",
+          "text": "Products"
+        },
+        {
+          "id": "pricing",
+          "href": "#",
+          "url": "",
+          "text": "Pricing"
+        },
+        {
+          "id": "company",
+          "href": "#",
+          "url": "",
+          "text": "Company"
+        }
+      ],
+      "meta": [
+        {
+          "id": "terms",
+          "href": "#",
+          "text": "Terms"
+        },
+        {
+          "id": "Privacy Policy",
+          "href": "#",
+          "text": "Privacy Policy"
+        }
+      ],
+      "copyright": "© 2022 Gatsby, Inc. All rights reserved.",
+      "socialLinks": [
+        {
+          "id": "twitter",
+          "service": "TWITTER",
+          "username": "#"
+        },
+        {
+          "id": "instagram",
+          "service": "INSTAGRAM",
+          "username": "#"
+        },
+        {
+          "id": "fb",
+          "service": "FACEBOOK",
+          "username": "#"
+        },
+        {
+          "id": "youtube",
+          "service": "YOUTUBE",
+          "username": "#"
+        }
+      ]
+    }
+  }
+}

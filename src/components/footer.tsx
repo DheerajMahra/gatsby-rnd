@@ -70,13 +70,15 @@ const getSocialName = ({ service }) => {
 }
 
 interface FooterData {
-  layout: {
-    footer: {
-      id: string
-      links: HomepageLink[]
-      meta: { id: string; href: string; text: string }[]
-      copyright: string
-      socialLinks: { id: string; service: string; username: string }[]
+  json: {
+    layout: {
+      footer: {
+        id: string
+        links: HomepageLink[]
+        meta: { id: string; href: string; text: string }[]
+        copyright: string
+        socialLinks: { id: string; service: string; username: string }[]
+      }
     }
   }
 }
@@ -84,31 +86,33 @@ interface FooterData {
 export default function Footer() {
   const data: FooterData = useStaticQuery(graphql`
     query {
-      layout {
-        footer {
-          id
-          links {
+      json(uid: {eq: "homepage-footer"}) {
+        layout {
+          footer {
             id
-            href
-            text
-          }
-          meta {
-            id
-            href
-            text
-          }
-          copyright
-          socialLinks {
-            id
-            service
-            username
+            links {
+              id
+              href
+              text
+            }
+            meta {
+              id
+              href
+              text
+            }
+            copyright
+            socialLinks {
+              id
+              service
+              username
+            }
           }
         }
       }
     }
   `)
 
-  const { links, meta, socialLinks, copyright } = data.layout.footer
+  const { links, meta, socialLinks, copyright } = data.json.layout.footer
 
   return (
     <Box as="footer" paddingY={4}>
