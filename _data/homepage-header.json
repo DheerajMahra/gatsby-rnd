@@ -1,0 +1,63 @@
+{
+  "uid": "homepage-header",
+  "layout": {
+    "header": {
+      "id": "homepage-header",
+      "cta": {
+        "id": "homepage-header__cta",
+        "href": "#",
+        "text": "Sign Up"
+      },
+      "navItems": [
+        {
+          "id": "products",
+          "navItemType": "Group",
+          "name": "Products",
+          "navItems": [
+            {
+              "id": "market",
+              "href": "string",
+              "icon": {
+                "id": "string",
+                "alt": "string",
+                "gatsbyImageData": "IGatsbyImageData",
+                "url": "string"
+              },
+              "text": "Market",
+              "description": "Clone, deploy, edit, and customize this starter to build your own homepage"
+            },
+            {
+              "id": "superApp",
+              "href": "string",
+              "icon": {
+                "id": "string",
+                "alt": "string",
+                "gatsbyImageData": "IGatsbyImageData",
+                "url": "string"
+              },
+              "text": "Super App"
+            }
+          ]
+        },
+        {
+          "id": "pricing",
+          "navItemType": "Link",
+          "href": "#",
+          "text": "Pricing"
+        },
+        {
+          "id": "about",
+          "navItemType": "Link",
+          "href": "#",
+          "text": "About"
+        },
+        {
+          "id": "blog",
+          "navItemType": "Link",
+          "href": "#",
+          "text": "Blog"
+        }
+      ]
+    }
+  }
+}

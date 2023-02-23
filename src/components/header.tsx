@@ -37,14 +37,16 @@ type NavItemGroup = {
 }
 
 interface HeaderData {
-  layout: {
-    header: {
-      id: string
-      navItems: NavItem[] | NavItemGroup[]
-      cta: {
+  json: {
+    layout: {
+      header: {
         id: string
-        href: string
-        text: string
+        navItems: NavItem[] | NavItemGroup[]
+        cta: {
+          id: string
+          href: string
+          text: string
+        }
       }
     }
   }
@@ -53,41 +55,35 @@ interface HeaderData {
 export default function Header() {
   const data: HeaderData = useStaticQuery(graphql`
     query {
-      layout {
-        header {
-          id
-          navItems {
+      json(uid: {eq: "homepage-header"}) {
+        layout {
+          header {
             id
-            navItemType
-            ... on NavItem {
+            cta {
+              id
               href
               text
             }
-            ... on NavItemGroup {
+            navItems {
+              id
+              navItemType
+              href
+              text
               name
               navItems {
                 id
                 href
                 text
                 description
-                icon {
-                  alt
-                  gatsbyImageData
-                }
               }
             }
-          }
-          cta {
-            id
-            href
-            text
           }
         }
       }
     }
   `)
-
-  const { navItems, cta } = data.layout.header
+  
+  const { navItems, cta } = data.json.layout.header
   const [isOpen, setOpen] = React.useState(false)
 
   React.useEffect(() => {
