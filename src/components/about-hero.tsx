@@ -1,31 +1,48 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container, Section, Text, SuperHeading, HomepageImage } from "./ui"
 import * as styles from "./about-hero.css"
 
 export interface AboutHeroProps {
-  heading: string
-  text?: string
-  image?: HomepageImage
+  json: {
+    heading: string
+    text?: string
+    image?: HomepageImage
+  }
 }
 
-export default function AboutHero(props: AboutHeroProps) {
+export default function AboutHero() {
+  const { json: { heading, text, image } }: AboutHeroProps = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "about-hero"}) {
+        heading
+        text
+        image {
+          id
+          alt
+          gatsbyImageData
+          url
+        }
+      }
+    }
+  `)
+
   return (
     <Section>
       <Container>
         <SuperHeading className={styles.aboutHeroHeader}>
-          {props.heading}
+          {heading}
         </SuperHeading>
-        {props.text && (
-          <Text className={styles.aboutHeroText}>{props.text}</Text>
+        {text && (
+          <Text className={styles.aboutHeroText}>{text}</Text>
         )}
       </Container>
       <Container width="wide">
-        {props.image && (
+        {image && (
           <GatsbyImage
-            alt={props.image.alt}
-            image={getImage(props.image.gatsbyImageData)}
+            alt={image.alt}
+            image={getImage(image.gatsbyImageData)}
             className={styles.aboutHeroImage}
           />
         )}
@@ -33,16 +50,3 @@ export default function AboutHero(props: AboutHeroProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment AboutHeroContent on AboutHero {
-    id
-    heading
-    text
-    image {
-      id
-      gatsbyImageData
-      alt
-    }
-  }
-`

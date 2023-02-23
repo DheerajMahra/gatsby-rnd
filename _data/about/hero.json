@@ -1,0 +1,11 @@
+{
+  "uid": "about-hero",
+  "heading": "Hi, we’re Acme. We make tools like Super™ and Track® that are used by thousands of teams worldwide.",
+  "text": "We’re serious about creating amazing products, practices, open work, accessibility, and inclusivity. And in all that we strive to embed a good amount of fun. We’re rooted in the open source community and deeply care about giving back.",
+  "image": {
+    "id": "string",
+    "alt": "string",
+    "gatsbyImageData": "IGatsbyImageData",
+    "url": "string"
+  }
+}

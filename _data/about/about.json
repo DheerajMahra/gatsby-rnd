@@ -11,6 +11,10 @@
       },
       "blocks": [
         {
+          "id": "about_hero",
+          "blocktype": "AboutHero"
+        },
+        {
           "id": "homepage_product_list",
           "blocktype": "HomepageProductList"
         },
