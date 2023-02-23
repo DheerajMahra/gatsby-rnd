@@ -19,7 +19,6 @@ export default function FeatureList(props: FeatureListProps) {
         text,
         content {
           id,
-          image,
           kicker,
           heading,
           text,

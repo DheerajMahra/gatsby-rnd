@@ -56,7 +56,6 @@ export default function ProductList(props: ProductListProps) {
         text,
         content {
           id,
-          image,
           heading,
           text,
           links {
