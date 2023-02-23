@@ -48,7 +48,7 @@
         {
           "id": "about",
           "navItemType": "Link",
-          "href": "#",
+          "href": "/about",
           "text": "About"
         },
         {
