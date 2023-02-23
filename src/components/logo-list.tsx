@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   Space,
   Container,
@@ -29,18 +29,30 @@ export interface LogoListProps {
   logos: LogoItemProps[]
 }
 
-export default function LogoList(props: LogoListProps) {
+export default function LogoList() {
+  const { json: { text, logos } } = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "homepage-logo-list"}) {
+        text,
+        logos {
+          id,
+          alt,
+          image
+        }
+      }
+    }
+  `)
   return (
     <Section paddingY={4}>
       <Container width="narrow">
-        {props.text && (
+        {text && (
           <Text center variant="lead">
-            {props.text}
+            {text}
           </Text>
         )}
         <Space size={4} />
         <FlexList gap={4} variant="center">
-          {props.logos.map(
+          {logos.map(
             (logo) =>
               logo && (
                 <li key={logo.id}>
@@ -53,19 +65,3 @@ export default function LogoList(props: LogoListProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment HomepageLogoListContent on HomepageLogoList {
-    id
-    text
-    logos {
-      id
-      alt
-      image {
-        id
-        gatsbyImageData
-        alt
-      }
-    }
-  }
-`

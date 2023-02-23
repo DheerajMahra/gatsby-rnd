@@ -1,0 +1,11 @@
+{
+  "uid": "homepage-logo-list",
+  "text": "Join other industry-leading organizations pushing boundaries with Gatsby",
+  "logos": [
+    {
+      "id": "logo1",
+      "alt": "Logo 1",
+      "image": "HomepageImage"
+    }
+  ]
+}
