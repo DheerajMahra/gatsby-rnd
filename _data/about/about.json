@@ -15,8 +15,8 @@
           "blocktype": "AboutHero"
         },
         {
-          "id": "homepage_product_list",
-          "blocktype": "HomepageProductList"
+          "id": "about_stat_list",
+          "blocktype": "AboutStatList"
         },
         {
           "id": "homepage_benefit_list",

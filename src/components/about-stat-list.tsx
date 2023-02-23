@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { Container, Section, FlexList, Box, Text } from "./ui"
 import * as styles from "./about-stat-list.css"
 
@@ -19,15 +19,28 @@ function AboutStat(props: AboutStatProps) {
 }
 
 export interface AboutStatListProps {
-  content: AboutStatProps[]
+  json: {
+    content: AboutStatProps[]
+  }
 }
 
-export default function AboutStatList(props: AboutStatListProps) {
+export default function AboutStatList() {
+  const { json: { content } }: AboutStatListProps = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "about-stat-list"}) {
+        content {
+          id
+          value
+          label
+        }
+      }
+    }
+  `)
   return (
     <Section>
       <Container>
         <FlexList className={styles.statList} variant="center" responsive>
-          {props.content.map((stat) => (
+          {content.map((stat) => (
             <AboutStat key={stat.id} {...stat} />
           ))}
         </FlexList>
@@ -35,14 +48,3 @@ export default function AboutStatList(props: AboutStatListProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment AboutStatListContent on AboutStatList {
-    id
-    content {
-      id
-      value
-      label
-    }
-  }
-`

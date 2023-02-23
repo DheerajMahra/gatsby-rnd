@@ -1,0 +1,25 @@
+{
+  "uid": "about-stat-list",
+  "content": [
+    {
+      "id": "satisfaction",
+      "value": "100%",
+      "label": "Satisfaction"
+    },
+    {
+      "id": "users",
+      "value": "10k",
+      "label": "Users"
+    },
+    {
+      "id": "gb",
+      "value": "256",
+      "label": "GB"
+    },
+    {
+      "id": "millions",
+      "value": "Millions",
+      "label": "of users"
+    }
+  ]
+}
