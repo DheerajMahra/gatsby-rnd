@@ -1,0 +1,19 @@
+{
+  "uid": "about-leadership",
+  "kicker": "WHY ACME IS THE BEST",
+  "heading": "Our leadership",
+  "subhead": "At the end of the day customer centric, so circle back translating our vision of having a market leading platform into the weeds let's schedule a standup during the sprint to review our KPIs.",
+  "content": [
+    {
+      "id": "string",
+      "image": {
+        "id": "string",
+        "alt": "string",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": "string"
+      },
+      "name": "string",
+      "jobTitle": "string"
+    }
+  ]
+}

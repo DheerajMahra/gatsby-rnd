@@ -6,7 +6,12 @@
   "content": [
     {
       "id": "superapp",
-      "image": "HomepageImage",
+      "image": {
+        "id": "string",
+        "alt": "string",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": "string"
+      },
       "heading": "SuperApp",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "links": [
@@ -20,7 +25,12 @@
     },
     {
       "id": "acmetracc",
-      "image": "HomepageImage",
+      "image": {
+        "id": "string",
+        "alt": "string",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": "string"
+      },
       "heading": "AcmeTracc",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "links": [
@@ -34,7 +44,12 @@
     },
     {
       "id": "hipermarket",
-      "image": "HomepageImage",
+      "image": {
+        "id": "string",
+        "alt": "string",
+        "gatsbyImageData": "IGatsbyImageData",
+        "url": "string"
+      },
       "heading": "HiperMarket",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "links": [

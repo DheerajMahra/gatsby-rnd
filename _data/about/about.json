@@ -23,6 +23,10 @@
           "blocktype": "HomepageBenefitList"
         },
         {
+          "id": "about_leadership",
+          "blocktype": "AboutLeadership"
+        },
+        {
           "id": "homepage_cta",
           "blocktype": "HomepageCta"
         }

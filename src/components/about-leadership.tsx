@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   Container,
@@ -47,23 +47,34 @@ function AboutProfile(props: AboutProfileProps) {
 }
 
 export interface AboutLeadershipProps {
-  kicker?: string
-  heading?: string
-  subhead?: string
-  content: AboutProfileProps[]
+  json: {
+    kicker?: string
+    heading?: string
+    subhead?: string
+    content: AboutProfileProps[]
+  }
 }
 
-export default function AboutLeadership(props: AboutLeadershipProps) {
+export default function AboutLeadership() {
+  const { json: { kicker, heading, subhead, content }}: AboutLeadershipProps = useStaticQuery(graphql`
+    query {
+      json(uid: {eq: "about-leadership"}) {
+        kicker
+        heading
+        subhead
+      }
+    }
+  `)
   return (
     <Section>
       <Container width="tight">
         <Box center paddingY={4}>
-          {props.kicker && <Kicker>{props.kicker}</Kicker>}
-          {props.heading && <Heading as="h1">{props.heading}</Heading>}
-          {props.subhead && <Text>{props.subhead}</Text>}
+          {kicker && <Kicker>{kicker}</Kicker>}
+          {heading && <Heading as="h1">{heading}</Heading>}
+          {subhead && <Text>{subhead}</Text>}
         </Box>
         <FlexList gap={0} variant="center" alignItems="start">
-          {props.content.map((profile) => (
+          {content?.map((profile) => (
             <AboutProfile key={profile.id} {...profile} />
           ))}
         </FlexList>
@@ -71,21 +82,3 @@ export default function AboutLeadership(props: AboutLeadershipProps) {
     </Section>
   )
 }
-
-export const query = graphql`
-  fragment AboutLeadershipContent on AboutLeadership {
-    id
-    kicker
-    heading
-    subhead
-    content {
-      id
-      name
-      jobTitle
-      image {
-        gatsbyImageData
-        alt
-      }
-    }
-  }
-`
